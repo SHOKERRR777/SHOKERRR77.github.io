@@ -95,7 +95,7 @@ def menu_info(message):
     menu_info = InlineKeyboardMarkup() # Добавляет возможность создать кнопку с WebAppInfo
     
     # Добавление кнопки, где WebAppInfo открывает хостинг нашего сайта в Telegram-боте
-    menu_info.add(InlineKeyboardButton("Открыть меню заВилка", web_app=WebAppInfo(url="htttps://SHOKERRR777.github.io")))
+    menu_info.add(InlineKeyboardButton("Открыть меню заВилка", web_app=WebAppInfo(url="htttps://SHOKERRR77.github.io")))
     bot.send_message(message.chat.id, "Откройте меню, чтобы продолжить", reply_markup=menu_info)
     
 bot.polling(none_stop=True) # Чтобы наш бот не прекращал работать
