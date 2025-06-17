@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Меню доставки от заВилка</title>
+        <style>
+            .dish-card {
+                border: 1px solid #add;
+                padding: 10px;
+                margin: 10px;
+                border-radius: 8px;
+            }
+        </style>
+        <script>        
+            // Загрузка меню из API
+            fetch('https://your-server.com/api/menu')
+                .then(response => response.json())
+                .then(dishes => {
+                    const menuContainer = document.getElementById('menu');
+                    dishes.forEach(dish => {
+                        menuContainer.innerHTML += `
+                            <div class="dish-card">
+                                <h3>${dish.name}</h3>
+                                <p>${dish.description}</p>
+                                <p>Цена: ${dish.price} руб.</p>
+                                <button onclick="addToCart(${dish.id})">Добавить в корзину</button>
+                            </div>
+                        `;
+                    });
+                });
+
+        function addToCart(dishId) {
+            // Логика добавления в корзину
+            Telegram.WebApp.sendData(JSON.stringify({ dishId: dishId }));
+        }
+    </script>
+</head>
+<body>
+    <h1>Меню</h1>
+    <div id="menu"></div>
+</body>
+</html>
